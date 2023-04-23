@@ -13,7 +13,7 @@ const Home = () => {
   };
   const navigate = useNavigate();
   function startRegister() {
-    navigate("/register");
+    navigate("/authenticate");
   }
   return (
     <div className={styles.cardWrapper}>
@@ -25,7 +25,7 @@ const Home = () => {
           extent he/she wants.
         </p>
         <div>
-          <Button onClick={startRegister} text="Get your username" />
+          <Button onClick={startRegister} text="Let's Go" />
         </div>
         <div className={styles.signinWrapper}>
           <span className={styles.hasInvite}>Have an invite text?</span>
