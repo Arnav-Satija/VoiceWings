@@ -26,7 +26,6 @@ const StepAvatar = ({ onNext }) => {
       if (data.auth) {
         dispatch(setAuth(data));
       }
-
     } catch (err) {
       console.log(err);
     }

@@ -1,12 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  name: "",
-  avatar: "",
+  name: '',
+  avatar: ''
 };
 
 export const activateSlice = createSlice({
-  name: "activate",
+  name: 'activate',
   initialState,
   reducers: {
     setName: (state, action) => {

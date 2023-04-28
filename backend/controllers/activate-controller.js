@@ -44,4 +44,8 @@ class ActivateController {
   }
 }
 
+<<<<<<< HEAD
 module.exports = new ActivateController();
+=======
+module.exports = new ActivateController();
+>>>>>>> f52179a264b3864d26099c474b48def27a8522d9
