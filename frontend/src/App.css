@@ -24,6 +24,10 @@ body {
     font-family: 'Lora', serif;
     background-image: url("https://wallpaperaccess.com/full/1523246.jpg");
     background-size: cover;
+    background-attachment: fixed;
+    background-position: center top;
+    background-repeat: no-repeat;
+    
     color: #ffffff;
 }
 
