@@ -6,17 +6,52 @@ import Authenticate from "./pages/Authenticate/Authenticate";
 import Activate from "./pages/Activate/Activate";
 import Rooms from "./pages/Rooms/Rooms";
 import { useSelector } from "react-redux";
+import { useLoadingWithRefresh } from "./hooks/useLoadingWithRefresh";
+import Loader from "./components/shared/Loader/Loader";
 
 function App() {
   const { user, isAuth } = useSelector((state) => state.auth);
-  return (
+  // call refresh endpoint
+  const { loading } = useLoadingWithRefresh();
+
+  return loading ? (
+    <Loader message="Loading, please wait.." />
+  ) : (
     <BrowserRouter>
       <Navigation />
       <Routes>
-        <Route path="/" element={isAuth ? <Navigate to="/rooms" repalce/> : <Home/>}/>
-        <Route path="/authenticate" element={isAuth ? <Navigate to="/rooms" replace/> : <Authenticate/>}/>
-        <Route path="/activate" element={!isAuth ? <Navigate to="/" repalce/> : isAuth && !user.activated ? <Activate/> : <Navigate to="/rooms" replace/>}/>
-        <Route path="/rooms" element={!isAuth ? <Navigate to="/" replace/> : isAuth && !user.activated ? <Navigate to="/activate" replace/> : <Rooms/>}/>
+        <Route
+          path="/"
+          element={isAuth ? <Navigate to="/rooms" repalce /> : <Home />}
+        />
+        <Route
+          path="/authenticate"
+          element={isAuth ? <Navigate to="/rooms" replace /> : <Authenticate />}
+        />
+        <Route
+          path="/activate"
+          element={
+            !isAuth ? (
+              <Navigate to="/" repalce />
+            ) : isAuth && !user.activated ? (
+              <Activate />
+            ) : (
+              <Navigate to="/rooms" replace />
+            )
+          }
+        />
+        <Route
+          path="/rooms"
+          element={
+            !isAuth ? (
+              <Navigate to="/" replace />
+            ) : isAuth && !user.activated ? (
+              <Navigate to="/activate" replace />
+            ) : (
+              <Rooms />
+            )
+          }
+        />
       </Routes>
     </BrowserRouter>
   );
