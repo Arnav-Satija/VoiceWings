@@ -17,7 +17,7 @@ ol, ul {
 
 img {
     max-width: 100%;
-    height: auto;
+    /* height: auto; */
 }
 
 body {
@@ -35,6 +35,11 @@ body {
     width: 1200px;
     max-width: 90%;
     margin: 0 auto;
+}
+
+.button{
+    border: none;
+    outline: none;
 }
 
 .cardWrapper {

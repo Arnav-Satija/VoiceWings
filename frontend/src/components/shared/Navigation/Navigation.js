@@ -15,9 +15,9 @@ const Navigation = () => {
     alignItems: "center",
   };
 
-  const logoText = {
-    marginLeft: "10px",
-  };
+  // const logoText = {
+  //   marginLeft: "10px",
+  // };
 
   const dispatch = useDispatch();
   const { isAuth, user } = useSelector((state) => state.auth);
@@ -34,7 +34,7 @@ const Navigation = () => {
     <nav className={`${styles.navbar} container`}>
       <Link style={brandStyle} to="/">
         {/* <img src="/images/.png" alt="logo" /> */}
-        <span style={logoText}>VoiceWings</span>
+        <span>VoiceWings</span>
       </Link>
       {isAuth && (
         <div className={styles.navRight}>
@@ -42,14 +42,14 @@ const Navigation = () => {
           <Link to="/">
             <img
               className={styles.avatar}
-              src={user.avatar ? user.avatar : "/images/monkey-avatar.png"}
+              src={user.avatar ? user.avatar : "/images/Cheema.png"}
               width="40"
               height="40"
               alt="avatar"
             />
           </Link>
           <button className={styles.logoutButton} onClick={logoutUser}>
-            <img src="/images/logout.png" alt="logout" />
+            <img src="/images/Logout.png" alt="logout" />
           </button>
         </div>
       )}
