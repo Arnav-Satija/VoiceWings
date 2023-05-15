@@ -15,10 +15,6 @@ const Navigation = () => {
     alignItems: "center",
   };
 
-  // const logoText = {
-  //   marginLeft: "10px",
-  // };
-
   const dispatch = useDispatch();
   const { isAuth, user } = useSelector((state) => state.auth);
   async function logoutUser() {
@@ -33,7 +29,6 @@ const Navigation = () => {
   return (
     <nav className={`${styles.navbar} container`}>
       <Link style={brandStyle} to="/">
-        {/* <img src="/images/.png" alt="logo" /> */}
         <span>VoiceWings</span>
       </Link>
       {isAuth && (

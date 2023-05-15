@@ -24,7 +24,7 @@ class AuthController {
       res.json({
         hash: `${hash}.${expires}`,
         phone,
-        otp, // temporary delete it
+        otp
       });
     } catch (err) {
       console.log(err);
@@ -66,14 +66,17 @@ class AuthController {
     });
 
     await tokenService.storeRefreshToken(refreshToken, user._id);
+
     res.cookie("refreshToken", refreshToken, {
       maxAge: 1000 * 60 * 60 * 24 * 30,
       httpOnly: true,
     });
+
     res.cookie("accessToken", accessToken, {
       maxAge: 1000 * 60 * 60 * 24 * 30,
       httpOnly: true,
     });
+
     const userDto = new UserDto(user);
     res.json({ user: userDto, auth: true });
   }

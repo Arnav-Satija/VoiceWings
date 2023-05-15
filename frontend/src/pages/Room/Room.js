@@ -11,10 +11,7 @@ const Room = () => {
   const { id: roomId } = useParams();
   const [room, setRoom] = useState(null);
 
-  const { clients, provideRef, handleMute, localStream } = useWebRTC(
-    roomId,
-    user
-  );
+  const { clients, provideRef, handleMute } = useWebRTC(roomId, user);
 
   const navigate = useNavigate();
 
@@ -31,11 +28,17 @@ const Room = () => {
 
   useEffect(() => {
     handleMute(isMuted, user.id);
-    console.log("local", localStream?.getTracks());
   }, [isMuted]);
 
   const handManualLeave = () => {
     navigate("/rooms");
+  };
+
+  const handleMuteClick = (clientId) => {
+    if (clientId !== user.id) {
+      return;
+    }
+    setMuted((prev) => !prev);
   };
 
   return (
@@ -54,7 +57,7 @@ const Room = () => {
               <img src="/images/HandRaise.png" alt="palm-icon" />
             </button>
             <button onClick={handManualLeave} className={styles.actionBtn}>
-              <img src="/images/Leave.png" alt="win-icon" />
+              <img src="/images/Start.png" alt="win-icon" />
               <span>Leave quietly</span>
             </button>
           </div>
@@ -71,13 +74,12 @@ const Room = () => {
                   />
                   <audio
                     autoPlay
-                    playsInline
                     ref={(instance) => {
                       provideRef(instance, client.id);
                     }}
                   />
                   <button
-                    onClick={() => setMuted((prev) => !prev)}
+                    onClick={() => handleMuteClick(client.id)}
                     className={styles.micBtn}
                   >
                     {client.muted ? (
