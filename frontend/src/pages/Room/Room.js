@@ -57,7 +57,7 @@ const Room = () => {
               <img src="/images/HandRaise.png" alt="palm-icon" />
             </button>
             <button onClick={handManualLeave} className={styles.actionBtn}>
-              <img src="/images/Start.png" alt="win-icon" />
+              <img src="/images/Leave.png" alt="win-icon" />
               <span>Leave quietly</span>
             </button>
           </div>
@@ -70,7 +70,7 @@ const Room = () => {
                   <img
                     className={styles.userAvatar}
                     src={client.avatar}
-                    alt=""
+                    alt="avatar"
                   />
                   <audio
                     autoPlay

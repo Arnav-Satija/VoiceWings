@@ -16,7 +16,7 @@ function App() {
   const { loading } = useLoadingWithRefresh();
 
   return loading ? (
-    <Loader message="Loading, please wait.." />
+    <Loader message="Loading, please wait..." />
   ) : (
     <BrowserRouter>
       <Navigation />
